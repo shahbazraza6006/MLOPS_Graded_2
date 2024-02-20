@@ -1,28 +1,15 @@
-name: Python Application
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name:Python Application
+on:push
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python 3.10 
+   build:
+      runs-on: ubuntu-latest
+      steps:
+       - uses: actions/checkout@v3
+       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: make install
-    
-      - name: Test with pytest
-        run: make test.py
+         python-version:"3.10"
+       - name: install dependencies
+         run: make install
+       - name: Test with pytest
+         run: make test
