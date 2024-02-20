@@ -25,4 +25,4 @@ jobs:
         run: pip install -r requirement.txt
     
       - name: Test with pytest
-        run: make test
+        run: pytest test
